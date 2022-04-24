@@ -1,0 +1,16 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	color: var(--black);
+}
+
+:root {
+	--white: rgb(247, 247, 235);
+	--bright-white: rgb(253, 253, 244);
+	--black: #050505;
+	--off-white: rgb(240, 240, 221);
+	--accent-dark: #175535;
+	--accent-light: #5a9367;
+    --contrast-dark: #731963;
+    --contrast-light: #B594B6;
+}

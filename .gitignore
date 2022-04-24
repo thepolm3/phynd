@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+/build
+/img
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+dev.db
+.vercel
+.vercel_build_output
+.vercel
