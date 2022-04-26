@@ -32,9 +32,11 @@
 <div class="content-order">
 	<div class="banner">
 		<div class="search-bar">
-			<div class="heading">
-				<h1><abbr title="Phytolith Nomenclature Database">PhyND</abbr></h1>
-			</div>
+			<a href="/">
+				<div class="heading">
+					<h1><abbr title="Phytolith Nomenclature Database">PhyND</abbr></h1>
+				</div>
+			</a>
 
 			<div>
 				<PlantSearchbar bind:plants />
@@ -91,6 +93,7 @@
 
 	.heading > h1 {
 		margin: 0;
+		color: var(--white);
 	}
 
 	@media only screen and (min-width: 800px) {

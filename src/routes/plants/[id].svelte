@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-ignore
 	import slug from 'limax'
 
 	import type { PlantType } from '$root/types'
@@ -153,5 +154,17 @@
 
 	.part {
 		display: flex;
+	}
+
+	@media only screen and (max-width: 800px) {
+		.info-container {
+			flex-direction: column;
+			gap: 1rem;
+			align-items: center;
+		}
+
+		h1 {
+			text-align: center;
+		}
 	}
 </style>

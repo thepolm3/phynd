@@ -57,9 +57,10 @@
 	.navigation {
 		display: flex;
 		justify-content: space-between;
+		gap: 10rem;
 		grid-auto-flow: row;
-		min-width: 50rem;
 		margin-bottom: 12rem;
+		text-align: center;
 	}
 
 	.title {
@@ -126,5 +127,13 @@
 
 	#picture-search:hover {
 		background-color: var(--contrast-dark);
+	}
+
+	@media only screen and (max-width: 800px) {
+		.navigation {
+			flex-direction: column;
+			gap: 3rem;
+			margin-bottom: 2rem;
+		}
 	}
 </style>

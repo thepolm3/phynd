@@ -13,4 +13,9 @@
 	:global(html) {
 		height: 100%;
 	}
+
+	:global(a) {
+		text-decoration: none;
+		color: var(--black);
+	}
 </style>
