@@ -21,6 +21,29 @@
 			<a id="picture-search" href="picture-search">Search by Picture</a>
 		</div>
 	</div>
+	<footer>
+		<p>
+			The PHYND website was created as part of a Masters project undertaken at Bournemouth
+			University in 2021/22. It sets out to provide an open access photographic database for
+			phytoliths found in plants of various ecosystems of the British Isles. The ecosystems explored
+			so far contain phytolith photographs of plants from agricultural crops, lowland heath and acid
+			grassland. The project is a work in progress and feedback about content, ease of use and
+			applicability should be sent to <b>s5117147 [at] bournemouth.ac.uk</b>
+		</p>
+		<p>
+			The photographic data was created by Sigrid Osborne, a masters student at Bournemouth
+			University. Joshua Osborne undertook the web design and is continuing to update and improve
+			the site. Sigrid would like to acknowledge the support of <a
+				href="https://www.butserancientfarm.co.uk">Butser Ancient Farm</a
+			>,
+			<a
+				href="https://www.nationaltrust.org.uk/studland-bay/lists/national-trust-treasures-in-purbeck"
+				>The National Trust</a
+			> and the Pitman family for allowing access to their land for plant collecting and Dr. S. Elliott
+			and Dr. E. Karoune for their training in phytolith processing, phytolith analysis and approaches
+			to fieldworking practices.
+		</p>
+	</footer>
 </div>
 
 <style>
@@ -41,12 +64,19 @@
 
 	.title {
 		display: grid;
+		justify-content: center;
+		align-items: center;
 		gap: 3rem;
 	}
 
 	.heading {
 		display: grid;
 		justify-content: center;
+	}
+
+	footer {
+		margin: auto;
+		width: min(90rem, 80%);
 	}
 
 	h1 {
