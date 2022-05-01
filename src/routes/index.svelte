@@ -18,7 +18,7 @@
 		</div>
 		<div class="navigation">
 			<a id="plant-search" href="plant-search">Search by Plant</a>
-			<a id="picture-search" href="picture-search">Search by Picture</a>
+			<a id="picture-search" href="picture-search">Search by Phytolith Type</a>
 		</div>
 	</div>
 	<footer>
