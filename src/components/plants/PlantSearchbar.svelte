@@ -8,7 +8,7 @@
 	export let plants: PlantType[]
 
 	const config = {
-		placeHolder: `Search ${plants.length} entries by Common Name, family, genus, etc.`,
+		placeHolder: `Search ${plants.length} plants by Vernacular Name, Botanical Name, Genus, Family, etc.`,
 		data: {
 			src: plants,
 			keys: ['search_string']
