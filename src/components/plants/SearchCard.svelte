@@ -29,7 +29,7 @@
 			<tr><th>Species:</th><td>{plant.species}</td></tr>
 		{/if}
 		{#if plant.plant_kingdom}
-			<tr><th>Kingdom:</th><td>{plant.plant_kingdom}</td></tr>
+			<tr><th>Category:</th><td>{plant.plant_kingdom}</td></tr>
 		{/if}
 	</table>
 </article>

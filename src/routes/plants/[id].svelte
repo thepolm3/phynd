@@ -22,7 +22,7 @@
 			<tr><th>Family:</th><td>{plant.family}</td></tr>
 			<tr><th>Genus:</th><td>{plant.genus}</td></tr>
 			<tr><th>Species:</th><td>{plant.species}</td></tr>
-			<tr><th>Kingdom:</th><td>{plant.plant_kingdom}</td></tr>
+			<tr><th>Category:</th><td>{plant.plant_kingdom}</td></tr>
 		</table>
 	</div>
 	<div class="part-gallery">
