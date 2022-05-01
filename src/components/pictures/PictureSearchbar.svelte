@@ -8,7 +8,7 @@
 	export let pictures: PlantPictureType[]
 
 	const config = {
-		placeHolder: `Search ${pictures.length} entries by plant name, part, or type`,
+		placeHolder: `Search ${pictures.length} images by Phytolith Type, Plant Name, or Plant Part`,
 		data: {
 			src: pictures,
 			keys: ['search_string']
