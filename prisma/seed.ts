@@ -1,11 +1,9 @@
-import PrismaClientPkg from '@prisma/client'
+import { PrismaClient, Prisma } from '@prisma/client'
+const prisma = new PrismaClient()
+
 import * as fs from 'fs'
 import * as csv from 'fast-csv'
 import glob from 'glob'
-
-// Prisma doesn't support ES Modules so we have to do this
-const PrismaClient = PrismaClientPkg.PrismaClient
-const prisma = new PrismaClient()
 
 const picture_types = [
 	'Overview Photo',
@@ -24,8 +22,8 @@ const picture_types = [
 	'Elongate Sinuate',
 	'Elongate Dentate',
 	'Elongate Dendritic',
-	'Sheroid Psilate',
-	'Sheroid Echinate',
+	'Spheroid Psilate',
+	'Spheroid Echinate',
 	'Spheroid Ornate',
 	'Papillate',
 	'Tracheary',
@@ -91,7 +89,7 @@ async function seed() {
 								if (files.length == 0) {
 									console.log(image_path, current_plant.colloquial_name, row['Plant Part'])
 								}
-								return files.map((path) => {
+								return files.map((path: any) => {
 									if (!current_plant.thumbnail) {
 										current_plant.thumbnail = path
 									}

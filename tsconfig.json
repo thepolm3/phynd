@@ -7,6 +7,6 @@
             "$lib":["src/lib"],
             "$lib/*":["src/lib/*"]
         },
-        "strict": true,
+        "allowSyntheticDefaultImports": true,
     },
 }
