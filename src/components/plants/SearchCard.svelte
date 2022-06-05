@@ -2,8 +2,6 @@
 	import type { PlantType } from '$root/types'
 
 	export let plant: PlantType
-
-	import { useLazyImage as lazyImage } from 'svelte-lazy-image'
 </script>
 
 <article class="plant-card" id="plant_card_{plant.id.toString()}">
@@ -13,9 +11,9 @@
 	<div class="plant-image-container">
 		<img
 			class="plant-image"
-			data-src="/img/thumbs/{plant.thumbnail}"
+			src="/img/thumbs/{plant.thumbnail}"
 			alt="{plant.colloquial_name} ({plant.genus} {plant.species})"
-			use:lazyImage
+			loading="lazy"
 		/>
 	</div>
 	<table>
