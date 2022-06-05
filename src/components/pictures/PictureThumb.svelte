@@ -4,17 +4,15 @@
 	export let picture: PlantPictureType
 	let part = picture.plant_part
 	let plant = part.plant
-
-	import { useLazyImage as lazyImage } from 'svelte-lazy-image'
 </script>
 
 <article class="plant-card" id="plant_card_{picture.id.toString()}">
 	<div class="plant-image-container">
 		<img
 			class="plant-image"
-			data-src="/img/thumbs/{picture.thumbnail}"
+			src="/img/thumbs/{picture.thumbnail}"
 			alt="{plant.colloquial_name} ({plant.genus} {plant.species})"
-			use:lazyImage
+			loading="lazy"
 		/>
 	</div>
 	<table>

@@ -1,92 +1,109 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition'
-
 	let width: number
 </script>
 
 <svelte:window bind:innerWidth={width} />
-
-<div class="container">
-	<div class="title">
-		<div class="heading">
-			<h1><abbr title="Phytolith Nomenclature Database">PhyND</abbr></h1>
-			<h2>
-				<a href="https://en.wikipedia.org/wiki/Phytolith"><b>Phy</b>tolith</a>
-				<b>N</b>omenclature
-				<b>D</b>atabase
-			</h2>
+<div class="margin">
+	<div class="container">
+		<div class="row">
+			<div class="title">
+				<div class="heading">
+					<h1><abbr title="Phytolith Nomenclature Database">PhyND</abbr></h1>
+					<h2>
+						<a href="https://en.wikipedia.org/wiki/Phytolith"><b>Phy</b>tolith</a>
+						<b>N</b>omenclature
+						<b>D</b>atabase for British Flora
+					</h2>
+				</div>
+				<div class="subheading">
+					An open access database for phytolith identification of British Flora
+				</div>
+			</div>
+			<div class="navigation">
+				<a id="plant-search" href="plant-search">Search by Plant</a>
+				<a id="picture-search" href="picture-search">Search by Phytolith Type</a>
+			</div>
 		</div>
-		<div class="navigation">
-			<a id="plant-search" href="plant-search">Search by Plant</a>
-			<a id="picture-search" href="picture-search">Search by Phytolith Type</a>
+		<div class="row">
+			<div class="info">
+				<h2>Info</h2>
+				<ul class="info">
+					<li><a href="about">About</a></li>
+					<li><a href="projects">Projects</a></li>
+					<li><a href="contributors">Contributors</a></li>
+				</ul>
+			</div>
+
+			<div id="map" />
 		</div>
 	</div>
-	<footer>
-		<p>
-			The PHYND website was created as part of a Masters project undertaken at Bournemouth
-			University in 2021/22. It sets out to provide an open access photographic database for
-			phytoliths found in plants of various ecosystems of the British Isles. The ecosystems explored
-			so far contain phytolith photographs of plants from agricultural crops, lowland heath and acid
-			grassland. The project is a work in progress and feedback about content, ease of use and
-			applicability should be sent to <b>s5117147 [at] bournemouth.ac.uk</b>
-		</p>
-		<p>
-			The photographic data was created by Sigrid Osborne, a masters student at Bournemouth
-			University. Joshua Osborne undertook the web design and is continuing to update and improve
-			the site. Sigrid would like to acknowledge the support of <a
-				href="https://www.butserancientfarm.co.uk">Butser Ancient Farm</a
-			>,
-			<a
-				href="https://www.nationaltrust.org.uk/studland-bay/lists/national-trust-treasures-in-purbeck"
-				>The National Trust</a
-			> and the Pitman family for allowing access to their land for plant collecting and Dr. S. Elliott
-			and Dr. E. Karoune for their training in phytolith processing, phytolith analysis and approaches
-			to fieldworking practices.
-		</p>
-	</footer>
 </div>
 
 <style>
-	.container {
-		display: grid;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
+	.margin {
+		margin-inline: 2rem;
 		height: 100%;
 	}
-	.navigation {
+
+	.info {
+		display: grid;
+		align-content: end;
+	}
+	.container {
+		display: grid;
+		width: min(60rem, 100%);
+		margin-inline: auto;
+		align-content: space-between;
+		margin-block: min(10%, 2rem);
+		height: max(80%, 100% - 4rem);
+	}
+
+	.row {
 		display: flex;
+		flex-direction: row;
 		justify-content: space-between;
-		gap: 10rem;
-		grid-auto-flow: row;
-		margin-bottom: 12rem;
-		text-align: center;
+		gap: 1rem;
 	}
 
 	.title {
+		width: 22rem;
+		gap: 1rem;
 		display: grid;
-		justify-content: center;
+	}
+
+	.navigation {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: right;
 		align-items: center;
-		gap: 3rem;
 	}
 
-	.heading {
-		display: grid;
-		justify-content: center;
+	@media only screen and (max-width: 800px) {
+		.row {
+			flex-direction: column;
+		}
+
+		.navigation {
+			justify-content: center;
+		}
 	}
 
-	footer {
-		margin: auto;
-		width: min(90rem, 80%);
+	#map {
+		height: 300px;
 	}
 
 	h1 {
-		display: grid;
-		justify-content: center;
+		margin-block: 0;
 	}
 
 	h1 > abbr {
-		font-size: 5ch;
+		font-size: 3ch;
+	}
+
+	.heading > h2 {
+		padding-block: 0.5rem;
 	}
 
 	.heading > h2 {
@@ -103,8 +120,9 @@
 	}
 
 	.navigation > a {
+		width: 13.5rem;
 		text-decoration: none;
-		font-size: 3ch;
+		font-size: 2ch;
 		font-weight: bold;
 		padding: 1rem;
 		border-radius: 0.5rem;
@@ -127,13 +145,5 @@
 
 	#picture-search:hover {
 		background-color: var(--contrast-dark);
-	}
-
-	@media only screen and (max-width: 800px) {
-		.navigation {
-			flex-direction: column;
-			gap: 3rem;
-			margin-bottom: 2rem;
-		}
 	}
 </style>

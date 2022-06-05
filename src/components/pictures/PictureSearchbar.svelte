@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
+
 	//@ts-ignore
 	import autoComplete from '@tarekraafat/autocomplete.js'
 

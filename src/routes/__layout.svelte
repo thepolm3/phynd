@@ -7,11 +7,13 @@
 <style>
 	:global(body) {
 		background-color: var(--off-white);
-		height: 100%;
+		height: calc(100% - 2rem);
 	}
 
 	:global(html) {
 		height: 100%;
+		padding: 0;
+		margin: 0;
 	}
 
 	:global(a) {

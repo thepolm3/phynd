@@ -1,4 +1,13 @@
 <script lang="ts">
+	export function load({ url }) {
+		const ref = url.searchParams.get('ref') || '/dashboard'
+		return {
+			props: {
+				ref
+			}
+		}
+	}
+
 	import PictureSearchbar from '$root/components/pictures/PictureSearchbar.svelte'
 
 	import type { PlantPictureType } from '$root/types'
