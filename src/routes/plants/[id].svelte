@@ -1,7 +1,4 @@
 <script lang="ts">
-	// @ts-ignore
-	import slug from 'limax'
-
 	import type { PlantType } from '$root/types'
 	import GalleryPicture from '$root/components/GalleryPicture.svelte'
 
@@ -46,7 +43,7 @@
 					<div class="part-section">
 						{#each part.types || [] as [type, pictures]}
 							<div class="part-type">
-								<h4 id={slug(`${part.name}-${type}`)}>{type}</h4>
+								<h4 id={`${part.name}-${type}`}>{type}</h4>
 								<div class="part-type-pics">
 									{#each pictures as picture}
 										<div class="part">

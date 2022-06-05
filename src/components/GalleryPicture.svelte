@@ -6,7 +6,7 @@
 
 <a href="/img/full/{picture.path}"
 	><div class="card">
-		<img src="/img/thumbs/{picture.path}" alt={`${picture.type}`} />
+		<img src="/img/thumbs/{picture.path}" alt={`${picture.type}`} loading="lazy" />
 	</div></a
 >
 

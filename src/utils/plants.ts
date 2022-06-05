@@ -1,6 +1,5 @@
 import { prisma } from '$root/lib/prisma'
 import type { PlantPartType, PlantPictureType, PlantType } from '$root/types'
-import slug from 'limax'
 
 export async function getPlants() {
 	const plants = await prisma.plant.findMany({
@@ -36,7 +35,7 @@ export async function getPictures() {
 
 	return pictures.map((picture: PlantPictureType) => {
 		const plant = picture.plant_part.plant
-		const s = slug(`${picture.plant_part.name}-${picture.type}`)
+		const s = `${picture.plant_part.name}-${picture.type}`
 		return {
 			...picture,
 			thumbnail: picture.path,

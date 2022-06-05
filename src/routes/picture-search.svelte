@@ -1,5 +1,5 @@
 <script lang="ts">
-	export function load({ url }) {
+	export function load({ url }: any) {
 		const ref = url.searchParams.get('ref') || '/dashboard'
 		return {
 			props: {

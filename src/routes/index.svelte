@@ -24,8 +24,8 @@
 				<a id="picture-search" href="picture-search">Search by Phytolith Type</a>
 			</div>
 		</div>
-		<div class="row">
-			<div class="info">
+		<div class="row" id="lower-row">
+			<div class="info-container">
 				<h2>Info</h2>
 				<ul class="info">
 					<li><a href="about">About</a></li>
@@ -45,9 +45,10 @@
 		height: 100%;
 	}
 
-	.info {
-		display: grid;
-		align-content: end;
+	.info-container {
+		padding: 1rem;
+		border: 1px dashed gray;
+		display: block;
 	}
 	.container {
 		display: grid;
@@ -63,6 +64,10 @@
 		flex-direction: row;
 		justify-content: space-between;
 		gap: 1rem;
+	}
+
+	#lower-row {
+		align-items: end;
 	}
 
 	.title {
