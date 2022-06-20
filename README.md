@@ -1,12 +1,14 @@
 # About
 
-The PHYND website was created as part of a Masters project undertaken at Bournemouth University in 2021/22. It sets out to provide an open access photographic database for phytoliths found in plants of various ecosystems of the British Isles. The ecosystems explored so far contain phytolith photographs of plants from agricultural crops, lowland heath and acid grassland. The project is a work in progress and feedback about content, ease of use and applicability should be sent to s5117147@bournemouth.ac.uk
+The PHYND website was created as part of a Masters project undertaken at Bournemouth University in 2021/22. It sets out to provide an open access photographic database for phytoliths found in plants of various ecosystems of the British Isles. The ecosystems explored so far contain phytolith photographs of plants from agricultural crops, lowland heath and acid grassland. The project is a work in progress and feedback about content, ease of use and applicability should be sent to contributions@phynd.online
+
 
 # Contributing
 
 ## Phytolith samples & other projects
 
-Please email s5117147@bournemouth.ac.uk in order to contribute samples from your own projects for other researchers to browse
+Please email contributions@phynd.online in order to contribute samples from your own projects for other researchers to browse
+
 
 ## Code Contributions
 
