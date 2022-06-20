@@ -2,13 +2,20 @@ import glob from 'glob'
 import Jimp from 'jimp'
 import path from 'path'
 import fs from 'fs'
+import { exit } from 'process';
 
+
+// arg 1 is min, arg 2 is max
+const from = process.argv[2] || -Infinity
+const to = process.argv[3] || Infinity
 
 glob(`**/*.*`, { nocase: true, cwd: 'img' }, (er, files) => {
     if (er) {
-        console.error(err)
+        console.error(er)
     }
-    files.forEach((filename, i) => {
+
+    files.filter((_, i) => {return i <= to && i >= from})
+        .forEach((filename, i) => {
         let filepath = path.parse(filename)
         let folder = filepath.name.split('.')[0]
         let full_name = `${folder}/${filepath.name}.jpg`
