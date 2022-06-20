@@ -10,3 +10,4 @@ dev.db
 .vercel
 .vercel_build_output
 .vercel
+/static/img/**
