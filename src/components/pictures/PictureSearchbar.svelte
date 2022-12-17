@@ -1,10 +1,16 @@
 <script lang="js">
-	import { onMount } from 'svelte'
+
+	import { afterUpdate, onMount } from 'svelte'
 
 	import autoComplete from '@tarekraafat/autocomplete.js'
+	import { page } from '$app/stores';
+    import { goto } from "$app/navigation";
 
+    $: query = $page.url.searchParams.get("q") || "";
+    let input;
+    let autoCompleteJS;
+	export let pictures;
 
-	export let pictures
 
 	const config = {
 		placeHolder: `Search ${pictures.length} images by Phytolith Type, Plant Name, or Plant Part`,
@@ -12,11 +18,13 @@
 			src: pictures,
 			keys: ['search_string']
 		},
-		trigger: (/** @type {any} */ _) => {
-			return true
-		},
 		events: {
 			input: {
+                change: ( /** @type {{ target: { value: string; }; }} */ input ) => {
+                    const newUrl = new URL($page.url);
+                    newUrl?.searchParams?.set("q", input.target.value);
+                    goto(newUrl, {replaceState: true});
+                },
 				results: (/** @type {{ detail: { results: any[]; }; }} */ event) => {
 					pictures = event.detail.results.map((result) => {
 						return result.value
@@ -24,17 +32,22 @@
 				}
 			}
 		},
-		resultsList: false
+        threshold: 0,
+		resultsList: false,
 	}
 
 	onMount(async () => {
-		const autoCompleteJS = new autoComplete(config)
-		autoCompleteJS.start()
+        autoCompleteJS = new autoComplete(config)
+        input.disabled = false;
+        autoCompleteJS.start(input.value);
 	})
+
+
+    
 </script>
 
 <div id="pictureAutoComplete">
-	<input id="autoComplete" />
+	<input id="autoComplete" value={query} disabled bind:this={input}/>
 </div>
 
 <style>
@@ -48,7 +61,7 @@
 		position: relative;
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input) {
+	input {
 		height: 3rem;
 		width: 40rem;
 		margin: 0;
@@ -71,44 +84,44 @@
 		-webkit-transition: all -webkit-transform 0.4s ease;
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input::placeholder) {
+	input::placeholder {
 		color: var(--contrast-light);
 		transition: all 0.3s ease;
 		-webkit-transition: all -webkit-transform 0.3s ease;
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input:hover::placeholder) {
+	input:hover::placeholder {
 		color: var(--contrast-light);
 		transition: all 0.3s ease;
 		-webkit-transition: all -webkit-transform 0.3s ease;
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input:focus::placeholder) {
+	input:focus::placeholder {
 		padding: 0.1rem 0.6rem;
 		font-size: 0.95rem;
 		color: var(--contrast-light);
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input:focus::selection) {
+	input:focus::selection {
 		background-color: rgba(255, 122, 122, 0.15);
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input::selection) {
+	input::selection {
 		background-color: rgba(255, 122, 122, 0.15);
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input:hover) {
+	input:hover {
 		color: var(--contrast-light);
 		transition: all 0.3s ease;
 		-webkit-transition: all -webkit-transform 0.3s ease;
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > input:focus) {
+	 input:focus {
 		color: var(--contrast-light);
 		border: 0.06rem solid #5a9367;
 	}
 
-	:global(#pictureAutoComplete .autoComplete_wrapper > ul) {
+	ul {
 		position: absolute;
 		max-height: 226px;
 		overflow-y: scroll;

@@ -8,17 +8,19 @@
 
 <article class="plant-card" id="plant_card_{picture.id.toString()}">
 	<div class="plant-image-container">
-		<img
-			class="plant-image"
-			src="/img/thumbs/{picture.thumbnail}"
-			alt="{plant.colloquial_name} ({plant.genus} {plant.species})"
-			loading="lazy"
-		/>
+        {#if picture.thumbnail}
+            <img
+                class="plant-image"
+                    src="/img/thumbs/{picture.thumbnail}"
+                alt="{plant.colloquial_name} ({plant.genus} {plant.species})"
+                loading="lazy"
+            />
+        {/if}
 	</div>
 	<table>
 		<tr><td>{plant.colloquial_name} ({part.name})</td></tr>
 		<tr><td>{picture.type}</td></tr>
-	</table>
+    </table>
 </article>
 
 <style>

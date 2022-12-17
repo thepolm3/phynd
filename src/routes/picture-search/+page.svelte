@@ -5,6 +5,7 @@
 	import type { PlantPictureType } from '$root/types'
 	import PictureThumb from '$root/components/pictures/PictureThumb.svelte'
 
+    /** @type {import('./$types').PageData} */
 	export let data
     let pictures: PlantPictureType[] = data.pictures;
 
