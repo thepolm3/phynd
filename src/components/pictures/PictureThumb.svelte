@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PlantPictureType, PlantType } from '$root/types'
+	import type { PlantPictureType } from '$root/types'
 
 	export let picture: PlantPictureType
 	let part = picture.plant_part

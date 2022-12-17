@@ -1,19 +1,12 @@
 <script lang="ts">
-	export function load({ url }: any) {
-		const ref = url.searchParams.get('ref') || '/dashboard'
-		return {
-			props: {
-				ref
-			}
-		}
-	}
 
 	import PictureSearchbar from '$root/components/pictures/PictureSearchbar.svelte'
 
 	import type { PlantPictureType } from '$root/types'
 	import PictureThumb from '$root/components/pictures/PictureThumb.svelte'
 
-	export let pictures: PlantPictureType[]
+	export let data
+    let pictures: PlantPictureType[] = data.pictures;
 
 	let width: number
 

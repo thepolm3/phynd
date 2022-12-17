@@ -1,12 +1,10 @@
-<script lang="ts">
+<script lang="js">
 	import { onMount } from 'svelte'
 
-	//@ts-ignore
 	import autoComplete from '@tarekraafat/autocomplete.js'
 
-	import type { PlantPictureType, PlantType } from '$root/types'
 
-	export let pictures: PlantPictureType[]
+	export let pictures
 
 	const config = {
 		placeHolder: `Search ${pictures.length} images by Phytolith Type, Plant Name, or Plant Part`,
@@ -14,13 +12,13 @@
 			src: pictures,
 			keys: ['search_string']
 		},
-		trigger: (_: any) => {
+		trigger: (/** @type {any} */ _) => {
 			return true
 		},
 		events: {
 			input: {
-				results: (event: any) => {
-					pictures = event.detail.results.map((result: any) => {
+				results: (/** @type {{ detail: { results: any[]; }; }} */ event) => {
+					pictures = event.detail.results.map((result) => {
 						return result.value
 					})
 				}

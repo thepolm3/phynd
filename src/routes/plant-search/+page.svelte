@@ -1,22 +1,13 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate'
-	import { fade } from 'svelte/transition'
 
 	import PlantSearchbar from '$root/components/plants/PlantSearchbar.svelte'
 	import PlantThumb from '$root/components/plants/SearchCard.svelte'
 
 	import type { PlantType } from '$root/types'
 
-	export let plants: PlantType[]
-	let title_hovered = false
-
-	function titleHoverStart() {
-		title_hovered = true
-	}
-
-	function titleHoverEnd() {
-		title_hovered = false
-	}
+	export let data;
+    let plants: PlantType[] = data.plants;
 
 	let width: number
 
@@ -37,11 +28,12 @@
 					<h1><abbr title="Phytolith Nomenclature Database">PhyND</abbr></h1>
 				</div>
 			</a>
-
-			<div>
-				<PlantSearchbar bind:plants />
-				<!-- <button>Advanced</button> -->
-			</div>
+            {#if plants !== undefined}
+                <div>
+                    <PlantSearchbar bind:plants />
+                    <!-- <button>Advanced</button> -->
+                </div>
+            {/if}
 		</div>
 	</div>
 	<div class="plant-grid">
@@ -76,10 +68,6 @@
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: flex-start;
-	}
-
-	a {
-		text-decoration: none;
 	}
 
 	.heading {

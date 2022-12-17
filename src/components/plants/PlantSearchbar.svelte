@@ -1,11 +1,10 @@
-<script lang="ts">
+<script lang="js">
+
 	import { onMount } from 'svelte'
-	//@ts-ignore
+
 	import autoComplete from '@tarekraafat/autocomplete.js'
 
-	import type { PlantType } from '$root/types'
-
-	export let plants: PlantType[]
+	export let plants
 
 	const config = {
 		placeHolder: `Search ${plants.length} plants by Vernacular Name, Botanical Name, Genus, Family, etc.`,
@@ -13,13 +12,13 @@
 			src: plants,
 			keys: ['search_string']
 		},
-		trigger: (_: any) => {
+		trigger: (/** @type {any} */ _) => {
 			return true
 		},
 		events: {
 			input: {
-				results: (event: any) => {
-					plants = event.detail.results.map((result: any) => {
+				results: (/** @type {{ detail: { results: { value: any; }[]; }; }} */ event) => {
+					plants = event.detail.results.map((/** @type {{ value: any; }} */ result) => {
 						return result.value
 					})
 				}

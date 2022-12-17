@@ -41,8 +41,13 @@
 		</div>
 	</div>
 </div>
-
 <style>
+
+	a {
+		text-decoration: none;
+		color: var(--black);
+	}
+
 	.margin {
 		margin-inline: 2rem;
 		height: 100%;

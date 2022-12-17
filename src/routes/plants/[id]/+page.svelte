@@ -2,9 +2,8 @@
 	import type { PlantType } from '$root/types'
 	import GalleryPicture from '$root/components/GalleryPicture.svelte'
 
-	export let plant: PlantType
-
-	let type: string | null = null
+	export let data
+    let plant: PlantType = data.plant;
 </script>
 
 <article>

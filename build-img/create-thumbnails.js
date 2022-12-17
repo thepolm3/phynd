@@ -2,12 +2,11 @@ import glob from 'glob'
 import Jimp from 'jimp'
 import path from 'path'
 import fs from 'fs'
-import { exit } from 'process';
 
 
 // arg 1 is min, arg 2 is max
-const from = process.argv[2] || 0
-const to = process.argv[3] || Infinity
+const from = parseInt(process.argv[2]) || 0
+const to = parseInt(process.argv[3]) || Infinity
 
 glob(`**/*.*`, { nocase: true, cwd: 'img' }, (er, files) => {
     if (er) {
