@@ -1,11 +1,10 @@
-import Prisma from '@prisma/client'
+import type { PrismaClient as ImportedPrismaClient } from '@prisma/client';
+import { createRequire } from 'module';
 
-export let prisma: any
+const require = createRequire(import.meta.url ?? __filename);
 
-if (Prisma === undefined) {
-	import('@prisma/client').then(({ PrismaClient }) => {
-		prisma = new PrismaClient()
-	})
-} else {
-	prisma = new Prisma.PrismaClient()
-}
+const { PrismaClient: RequiredPrismaClient } = require('@prisma/client');
+
+const _PrismaClient: typeof ImportedPrismaClient = RequiredPrismaClient;
+
+export class PrismaClient extends _PrismaClient {}

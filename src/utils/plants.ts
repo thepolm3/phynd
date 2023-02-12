@@ -1,4 +1,5 @@
-import { prisma } from '$root/lib/prisma'
+import { PrismaClient } from '$root/lib/prisma'
+const prisma = new PrismaClient();
 import type { PlantPartType, PlantPictureType, PlantType } from '$root/types'
 
 export async function getPlants() {

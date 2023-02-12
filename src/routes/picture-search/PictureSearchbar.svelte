@@ -1,6 +1,6 @@
-<script lang="js">
+<script lang="ts">
 
-	import { afterUpdate, onMount } from 'svelte'
+	import { onMount } from 'svelte'
 
 	import autoComplete from '@tarekraafat/autocomplete.js'
 	import { page } from '$app/stores';
@@ -121,7 +121,7 @@
 		border: 0.06rem solid #5a9367;
 	}
 
-	ul {
+	/* ul {
 		position: absolute;
 		max-height: 226px;
 		overflow-y: scroll;
@@ -140,7 +140,7 @@
 		transition: opacity 0.15s ease-in-out;
 		-moz-transition: opacity 0.15s ease-in-out;
 		-webkit-transition: opacity 0.15s ease-in-out;
-	}
+	} */
 
 	:global(#pictureAutoComplete .autoComplete_wrapper > ul[hidden]),
 	:global(#pictureAutoComplete .autoComplete_wrapper > ul:empty) {
