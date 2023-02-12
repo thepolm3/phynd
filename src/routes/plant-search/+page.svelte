@@ -10,10 +10,6 @@
     let plants: PlantType[] = data.plants;
 
 	let width: number
-
-	$: if (width < 800 && plants != undefined) {
-		window.scrollTo(0, document.body.scrollHeight)
-	}
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -92,9 +88,9 @@
 	}
 
 	@media only screen and (max-width: 800px) {
-		.content-order {
+		/* .content-order {
 			flex-direction: column-reverse;
-		}
+		} */
 
 		.plant-grid {
 			flex-flow: row wrap-reverse;
