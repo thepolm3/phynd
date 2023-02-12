@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../styles/global.css'
+	import Analytics from './Analytics.svelte';
 </script>
 
 <style>
@@ -37,5 +38,7 @@
 		margin: 0;
 	}
 </style>
+
+<Analytics />
 
 <slot/>
