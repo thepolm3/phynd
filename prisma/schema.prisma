@@ -41,5 +41,4 @@ model PlantPartPicture {
     type          String
     plant_part_id Int
     plant_part    PlantPart @relation(fields: [plant_part_id], references: [id])
-
 }

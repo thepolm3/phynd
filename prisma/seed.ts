@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 import * as fs from 'fs'
@@ -45,7 +45,7 @@ async function seed() {
 	fs.createReadStream('./prisma/plants.csv')
 		.pipe(csv.parse({ headers: true }))
 		.on('error', (error) => console.error(error))
-		.on('data', (row) => {
+		.on('data', (row: any) => {
             // the first column will be the name of the plant, but it may sometimes be blank.
             // in that case we should use the last seen value, here stored in "current_plant"
 			if (row['Colloquial Name'] != '' && row['Colloquial Name'] != current_plant.colloquial_name) {

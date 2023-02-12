@@ -1,9 +1,9 @@
 <script lang="ts">
 
-	import PictureSearchbar from '$root/components/pictures/PictureSearchbar.svelte'
+	import PictureSearchbar from './PictureSearchbar.svelte'
 
 	import type { PlantPictureType } from '$root/types'
-	import PictureThumb from '$root/components/pictures/PictureThumb.svelte'
+	import PictureThumb from './PictureThumb.svelte'
 
     /** @type {import('./$types').PageData} */
 	export let data

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate'
 
-	import PlantSearchbar from '$root/components/plants/PlantSearchbar.svelte'
-	import PlantThumb from '$root/components/plants/SearchCard.svelte'
+	import PlantSearchbar from './PlantSearchbar.svelte'
+	import PlantThumb from './SearchCard.svelte'
 
 	import type { PlantType } from '$root/types'
 

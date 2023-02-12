@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PlantType } from '$root/types'
-	import GalleryPicture from '$root/components/GalleryPicture.svelte'
+	import GalleryPicture from './GalleryPicture.svelte'
 
 	export let data
     let plant: PlantType = data.plant;
