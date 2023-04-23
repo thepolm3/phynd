@@ -8,9 +8,6 @@ const from = parseInt(process.argv[2]) || 0;
 const to = parseInt(process.argv[3]) || Infinity;
 
 const files = await glob(`**/*.*`, { nocase: true, cwd: 'img' });
-console.log(files)
-console.log("hi");
-console.log(files);
 
 files
     .filter((_, i) => {
