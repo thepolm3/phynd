@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as csv from 'fast-csv';
-import glob from 'glob';
+import { globSync } from 'glob';
 
 const picture_types = [
 	'Overview Photo',
@@ -37,6 +37,7 @@ const picture_types = [
 ];
 
 async function seed() {
+    console.info('Seeding plants.json...');
 	let plants = [];
 	let current_plant = { colloquial_name: '' };
 	let plant_id = 0;
@@ -105,13 +106,13 @@ async function seed() {
 							const folder = image_path.split('.')[0];
 
 							// glob for anything matching the image name
-							const files = glob.sync(
+							const files = globSync(
 								`${folder}*/{${image_path} *,${image_path},${image_path}.*}`,
 								{ nocase: true, cwd: 'static/img/thumbs' }
 							);
 
 							if (files.length == 0) {
-								console.log(
+								console.error(
 									'Plant part picture not found!',
 									image_path,
 									current_plant.colloquial_name,
@@ -137,8 +138,9 @@ async function seed() {
 		})
 		.on('end', () => {
 			fs.writeFile('src/plants.json', JSON.stringify(plants), (error) => {
-				console.error(error);
+				if (error) {console.error(error)};
 			});
+            console.info('Seeding plants.json finished');
 		});
 }
 
