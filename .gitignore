@@ -11,3 +11,4 @@ dev.db
 .vercel_build_output
 .vercel
 /static/img/**
+/src/plants.json
