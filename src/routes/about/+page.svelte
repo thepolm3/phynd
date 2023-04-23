@@ -7,8 +7,9 @@
 		phytolith photographs of plants from agricultural crops, lowland heath and acid grassland. The
 		project is a work in progress and feedback about content, ease of use and applicability should
 		be sent to<b>contributions@phynd.online</b>
-        <br><br>
-        The project is open source, and you can find the source and learn how to contribute on <b><a href=https://github.com/thepolm3/phynd>github</a></b>
+		<br /><br />
+		The project is open source, and you can find the source and learn how to contribute on
+		<b><a href="https://github.com/thepolm3/phynd">github</a></b>
 	</p>
 
 	<i><a href="/">&lt Back</a></i>

@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { flip } from 'svelte/animate'
+	import { flip } from 'svelte/animate';
 
-	import PlantSearchbar from './PlantSearchbar.svelte'
-	import PlantThumb from './SearchCard.svelte'
+	import PlantSearchbar from './PlantSearchbar.svelte';
+	import PlantThumb from './PlantThumb.svelte';
 
-	import type { PlantType } from '$root/types'
+	import type { PlantSearchResult } from '$root/types';
 
 	export let data;
-    let plants: PlantType[] = data.plants;
+	let plants: PlantSearchResult[] = data.plants;
 
-	let width: number
+	let width: number;
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -24,12 +24,12 @@
 					<h1><abbr title="Phytolith Nomenclature Database">PhyND</abbr></h1>
 				</div>
 			</a>
-            {#if plants !== undefined}
-                <div>
-                    <PlantSearchbar bind:plants />
-                    <!-- <button>Advanced</button> -->
-                </div>
-            {/if}
+			{#if plants !== undefined}
+				<div>
+					<PlantSearchbar bind:plants />
+					<!-- <button>Advanced</button> -->
+				</div>
+			{/if}
 		</div>
 	</div>
 	<div class="plant-grid">

@@ -1,15 +1,13 @@
 <script lang="ts">
+	import PictureSearchbar from './PictureSearchbar.svelte';
 
-	import PictureSearchbar from './PictureSearchbar.svelte'
+	import type { PlantPictureSearchResult } from '$root/types';
+	import PictureThumb from './PictureThumb.svelte';
 
-	import type { PlantPictureType } from '$root/types'
-	import PictureThumb from './PictureThumb.svelte'
+	export let data;
+	let pictures: PlantPictureSearchResult[] = data.pictures;
 
-    /** @type {import('./$types').PageData} */
-	export let data
-    let pictures: PlantPictureType[] = data.pictures;
-
-	let width: number
+	let width: number;
 </script>
 
 <svelte:window bind:innerWidth={width} />

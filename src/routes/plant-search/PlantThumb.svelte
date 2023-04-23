@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { PlantType } from '$root/types'
+	import type { Plant } from '$root/types';
 
-	export let plant: PlantType
+	export let plant: Plant;
 </script>
 
 <article class="plant-card" id="plant_card_{plant.id.toString()}">
@@ -9,12 +9,14 @@
 		<h3>{plant.colloquial_name}</h3>
 	</div>
 	<div class="plant-image-container">
-		<img
-			class="plant-image"
-			src="/img/thumbs/{plant.thumbnail}"
-			alt="{plant.colloquial_name} ({plant.genus} {plant.species})"
-			loading="lazy"
-		/>
+		{#if plant.thumbnail}
+            <img
+                class="plant-image"
+                src="/img/thumbs/{plant.thumbnail}"
+                alt="{plant.colloquial_name} ({plant.genus} {plant.species})"
+                loading="lazy"
+            />
+        {/if}
 	</div>
 	<table>
 		{#if plant.family}

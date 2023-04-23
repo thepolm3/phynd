@@ -1,13 +1,15 @@
 <script lang="js">
+    import {browser} from "$app/environment";
+    const searchParams = browser && $page.url.searchParams;
 
-	import { onMount } from 'svelte'
-
-	import autoComplete from '@tarekraafat/autocomplete.js'
+	import { onMount } from 'svelte';
+    
+	import autoComplete from '@tarekraafat/autocomplete.js';
 	import { page } from '$app/stores';
-    import { goto } from "$app/navigation";
+	import { goto } from '$app/navigation';
 
-    let query = $page.url.searchParams.get("q") || "";
-	export let plants
+	let query = (searchParams && searchParams.get('q')) || '';
+	export let plants;
 
 	const config = {
 		placeHolder: `Search ${plants.length} plants by Vernacular Name, Botanical Name, Genus, Family, etc.`,
@@ -17,32 +19,34 @@
 		},
 		events: {
 			input: {
-                change: ( /** @type {{ target: { value: any; }; }} */ input ) => {
-                    const newUrl = new URL($page.url);
-                    newUrl?.searchParams?.set("q", input.target.value);
-                    goto(newUrl, {replaceState: true});
-                    
-                },
+				change: (/** @type {{ target: { value: any; }; }} */ input) => {
+					const newUrl = new URL($page.url);
+					newUrl?.searchParams?.set('q', input.target.value);
+					goto(newUrl, { replaceState: true });
+				},
 				results: (/** @type {{ detail: { results: { value: any; }[]; }; }} */ event) => {
 					plants = event.detail.results.map((/** @type {{ value: any; }} */ result) => {
-						return result.value
-					})
+						return result.value;
+					});
 				}
 			}
 		},
-        threshold: 0,
+		threshold: 0,
 		resultsList: false
-	}
+	};
 
 	onMount(async () => {
-        const autoCompleteJS = new autoComplete(config)
-		autoCompleteJS.start(query)
-        document.getElementById("autoComplete").disabled = false;
-	})
+		const autoCompleteJS = new autoComplete(config);
+		autoCompleteJS.start(query);
+		let elem = document.getElementById('autoComplete');
+        if (elem) {
+            elem.setAttribute("disabled", "false");
+        }
+	});
 </script>
 
 <div id="plantAutoComplete">
-	<input id="autoComplete" value="{query}" disabled/>
+	<input id="autoComplete" value={query} disabled />
 </div>
 
 <style>
@@ -55,8 +59,8 @@
 		display: inline-block;
 		position: relative;
 	}
-	 
-    input {
+
+	input {
 		height: 3rem;
 		width: 40rem;
 		margin: 0;
@@ -104,8 +108,8 @@
 	input::selection {
 		background-color: rgba(255, 122, 122, 0.15);
 	}
-	 
-    input:hover {
+
+	input:hover {
 		color: var(--accent-light);
 		transition: all 0.3s ease;
 		-webkit-transition: all -webkit-transform 0.3s ease;

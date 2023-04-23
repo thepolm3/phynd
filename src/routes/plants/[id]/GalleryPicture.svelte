@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type { PlantPictureType } from '$root/types'
+	import type { Picture } from '$root/types';
 
-	export let picture: PlantPictureType
+	export let picture: Picture;
+	export let name: string;
 </script>
 
 <a href="/img/full/{picture.path}"
 	><div class="card">
-		<img src="/img/thumbs/{picture.path}" alt={`${picture.type}`} loading="lazy" />
+		<img src="/img/thumbs/{picture.path}" alt={`${name}`} loading="lazy" />
 	</div></a
 >
 

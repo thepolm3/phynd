@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -8,10 +8,10 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-        alias: {
-            "$root": "src",
-        },
-		adapter: adapter(),
+		alias: {
+			$root: 'src'
+		},
+		adapter: adapter()
 	}
 };
 

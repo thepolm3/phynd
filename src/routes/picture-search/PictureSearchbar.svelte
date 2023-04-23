@@ -1,16 +1,17 @@
 <script lang="ts">
+    import {browser} from "$app/environment";
+    const searchParams = browser && $page.url.searchParams
 
-	import { onMount } from 'svelte'
+	import { onMount } from 'svelte';
 
-	import autoComplete from '@tarekraafat/autocomplete.js'
+	import autoComplete from '@tarekraafat/autocomplete.js';
 	import { page } from '$app/stores';
-    import { goto } from "$app/navigation";
+	import { goto } from '$app/navigation';
 
-    $: query = $page.url.searchParams.get("q") || "";
-    let input;
-    let autoCompleteJS;
+	$: query = (searchParams && searchParams.get('q')) || '';
+	let input;
+	let autoCompleteJS;
 	export let pictures;
-
 
 	const config = {
 		placeHolder: `Search ${pictures.length} images by Phytolith Type, Plant Name, or Plant Part`,
@@ -20,34 +21,31 @@
 		},
 		events: {
 			input: {
-                change: ( /** @type {{ target: { value: string; }; }} */ input ) => {
-                    const newUrl = new URL($page.url);
-                    newUrl?.searchParams?.set("q", input.target.value);
-                    goto(newUrl, {replaceState: true});
-                },
+				change: (/** @type {{ target: { value: string; }; }} */ input) => {
+					const newUrl = new URL($page.url);
+					newUrl?.searchParams?.set('q', input.target.value);
+					goto(newUrl, { replaceState: true });
+				},
 				results: (/** @type {{ detail: { results: any[]; }; }} */ event) => {
 					pictures = event.detail.results.map((result) => {
-						return result.value
-					})
+						return result.value;
+					});
 				}
 			}
 		},
-        threshold: 0,
-		resultsList: false,
-	}
+		threshold: 0,
+		resultsList: false
+	};
 
 	onMount(async () => {
-        autoCompleteJS = new autoComplete(config)
-        input.disabled = false;
-        autoCompleteJS.start(input.value);
-	})
-
-
-    
+		autoCompleteJS = new autoComplete(config);
+		input.disabled = false;
+		autoCompleteJS.start(input.value);
+	});
 </script>
 
 <div id="pictureAutoComplete">
-	<input id="autoComplete" value={query} disabled bind:this={input}/>
+	<input id="autoComplete" value={query} disabled bind:this={input} />
 </div>
 
 <style>
@@ -116,7 +114,7 @@
 		-webkit-transition: all -webkit-transform 0.3s ease;
 	}
 
-	 input:focus {
+	input:focus {
 		color: var(--contrast-light);
 		border: 0.06rem solid #5a9367;
 	}

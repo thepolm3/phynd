@@ -1,26 +1,24 @@
 <script lang="ts">
-	import type { PlantPictureType } from '$root/types'
+	import type { PlantPictureSearchResult } from '$root/types';
 
-	export let picture: PlantPictureType
-	let part = picture.plant_part
-	let plant = part.plant
+	export let picture: PlantPictureSearchResult;
 </script>
 
-<article class="plant-card" id="plant_card_{picture.id.toString()}">
+<article class="plant-card">
 	<div class="plant-image-container">
-        {#if picture.thumbnail}
-            <img
-                class="plant-image"
-                    src="/img/thumbs/{picture.thumbnail}"
-                alt="{plant.colloquial_name} ({plant.genus} {plant.species})"
-                loading="lazy"
-            />
-        {/if}
+		{#if picture.thumbnail}
+			<img
+				class="plant-image"
+				src="/img/thumbs/{picture.thumbnail}"
+				alt="{picture.plant_name} ({picture.plant_genus} {picture.plant_species})"
+				loading="lazy"
+			/>
+		{/if}
 	</div>
 	<table>
-		<tr><td>{plant.colloquial_name} ({part.name})</td></tr>
+		<tr><td>{picture.plant_name} ({picture.part_name})</td></tr>
 		<tr><td>{picture.type}</td></tr>
-    </table>
+	</table>
 </article>
 
 <style>

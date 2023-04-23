@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { PlantType } from '$root/types'
-	import GalleryPicture from './GalleryPicture.svelte'
+	import type { Plant } from '$root/types';
+	import GalleryPicture from './GalleryPicture.svelte';
 
-	export let data
-    let plant: PlantType = data.plant;
+	export let data;
+	let plant: Plant = data.plant;
 </script>
 
 <article>
@@ -21,6 +21,15 @@
 			<tr><th>Category:</th><td>{plant.plant_kingdom}</td></tr>
 		</table>
 	</div>
+	<div class="links">
+		{#if plant.kew_photo}
+			<a href={plant.kew_photo}>View Kew Photo</a>
+		{/if}
+		{#if plant.project_herbarium_link}
+			<a href={plant.project_herbarium_link}>View Project Herbarium Page</a>
+		{/if}
+	</div>
+
 	<div class="part-gallery">
 		<h2>Gallery</h2>
 		{#if plant.parts === undefined}
@@ -30,23 +39,15 @@
 				{#each plant.parts as part}
 					<div class="part-heading">
 						<h3 id={part.name}>{part.name}</h3>
-						<div class="links">
-							{#if part.kew_photo}
-								<a href={part.kew_photo}>Kew</a>
-							{/if}
-							{#if part.project_herbarium_link}
-								<a href={part.project_herbarium_link}>Project Herbarium</a>
-							{/if}
-						</div>
 					</div>
 					<div class="part-section">
-						{#each part.types || [] as [type, pictures]}
+						{#each part.types as { name, pictures }}
 							<div class="part-type">
-								<h4 id={`${part.name}-${type}`}>{type}</h4>
+								<h4 id={`${part.name}-${name.trim()}`}>{name}</h4>
 								<div class="part-type-pics">
 									{#each pictures as picture}
 										<div class="part">
-											<GalleryPicture {picture} />
+											<GalleryPicture {picture} {name} />
 										</div>
 									{/each}
 								</div>
@@ -69,17 +70,32 @@
 		color: var(--off-white);
 	}
 
-	h1 {
-		font-size: 7ch;
-		margin: 0rem;
-	}
-
 	.info-container th {
 		text-align: right;
 	}
 
 	.info-container td {
 		font-style: italic;
+	}
+	.links {
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		padding: 1rem;
+		background-color: var(--accent-light);
+		color: var(--off-white);
+	}
+
+	.links > a {
+		font-style: italic;
+		color: var(--off-white);
+		font-size: 3ch;
+		text-decoration: underline;
+	}
+
+	h1 {
+		font-size: 7ch;
+		margin: 0rem;
 	}
 
 	h2 {
@@ -103,15 +119,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	}
-
-	.links {
-		display: flex;
-		gap: 1rem;
-	}
-
-	.part-heading a {
-		justify-self: flex-end;
 	}
 
 	.part-gallery {
