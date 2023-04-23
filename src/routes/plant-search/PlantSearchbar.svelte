@@ -9,6 +9,7 @@
 	import { goto } from '$app/navigation';
 
 	let query = (searchParams && searchParams.get('q')) || '';
+    console.log(query);
 	export let plants;
 
 	const config = {
@@ -40,7 +41,7 @@
 		autoCompleteJS.start(query);
 		let elem = document.getElementById('autoComplete');
         if (elem) {
-            elem.setAttribute("disabled", "false");
+            elem.removeAttribute("disabled");
         }
 	});
 </script>
