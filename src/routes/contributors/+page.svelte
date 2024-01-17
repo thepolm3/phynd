@@ -1,7 +1,7 @@
 <div class="container">
 	<h1>Contributors</h1>
 	<p>
-		The photographic data was created by Sigrid Osborne, a masters student at Bournemouth
+		The photographic data was created by Sigrid Osborne (<b><a href="https://orcid.org/0009-0000-6552-9579">https://orcid.org/0009-0000-6552-9579</a></b>), a masters student at Bournemouth
 		University. Joshua Osborne undertook the web design and is continuing to update and improve the
 		site. Sigrid would like to acknowledge the support of <a
 			href="https://www.butserancientfarm.co.uk">Butser Ancient Farm</a
