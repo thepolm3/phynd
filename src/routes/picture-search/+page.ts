@@ -21,6 +21,15 @@ export async function load() {
 			)
 		)
 	);
+    
+    const unique_paths = new Set();
+    const unique = pictures.filter((picture) => {
+        if (unique_paths.has(picture.path)) {
+            return false
+        } else {
+            unique_paths.add(picture.path); return true
+        }
+    })
 
-	return { pictures };
+	return { pictures: unique };
 }
