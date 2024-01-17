@@ -5,7 +5,7 @@
 		in 2021/22 (DOI: <b><a href="https://eprints.bournemouth.ac.uk/38025/">10.18746/BMTH.DATA.00000313</a></b>).
         It sets out to provide an open access photographic database for phytoliths found in
 		plants of various ecosystems of the British Isles. The ecosystems explored so far contain
-		phytolith photographs of plants from agricultural crops, lowland heath and acid grassland. The
+		phytolith photographs of plants from agricultural crops, lowland heath and agricultural grassland. The
 		project is a work in progress and feedback about content, ease of use and applicability should
 		be sent to <b>contributions@phynd.online</b>
 		<br><br>
